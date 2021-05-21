@@ -16,29 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-6z-sUB">
-                                <rect key="frame" x="184" y="100" width="200" height="100"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-6z-sUB">
+                                <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rp-Kb-Sfo">
-                                <rect key="frame" x="184" y="230" width="200" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rp-Kb-Sfo">
+                                <rect key="frame" x="107" y="230" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogY-DK-yGX">
-                                <rect key="frame" x="184" y="360" width="200" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogY-DK-yGX">
+                                <rect key="frame" x="107" y="360" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="T4h-6z-sUB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6Hl-1b-FMU"/>
+                            <constraint firstItem="ogY-DK-yGX" firstAttribute="centerX" secondItem="7Rp-Kb-Sfo" secondAttribute="centerX" id="DZi-9i-Ifi"/>
+                            <constraint firstItem="7Rp-Kb-Sfo" firstAttribute="centerX" secondItem="T4h-6z-sUB" secondAttribute="centerX" id="ViX-mH-256"/>
+                            <constraint firstItem="ogY-DK-yGX" firstAttribute="top" secondItem="7Rp-Kb-Sfo" secondAttribute="bottom" constant="30" id="f1Q-D5-hvs"/>
+                            <constraint firstItem="7Rp-Kb-Sfo" firstAttribute="top" secondItem="T4h-6z-sUB" secondAttribute="bottom" constant="30" id="jcV-EA-zUN"/>
                             <constraint firstItem="T4h-6z-sUB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="wcO-Wt-KdT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wxF-Q0-E7V"/>
+                    <connections>
+                        <outlet property="button1" destination="T4h-6z-sUB" id="UVc-PR-6Kz"/>
+                        <outlet property="button2" destination="7Rp-Kb-Sfo" id="fIi-1G-KKP"/>
+                        <outlet property="button3" destination="ogY-DK-yGX" id="v0y-8X-MIE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,6 +71,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="us" width="200" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
