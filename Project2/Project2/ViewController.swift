@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var score = 0
     var correctAnswer = 0
     var questionsAsked = 0
+    var lastFlagTapped = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,25 +50,18 @@ class ViewController: UIViewController {
     
     func restart(action: UIAlertAction! = nil) {
         score = 0
-        correctAnswer = 0
         questionsAsked = 0
     }
     
     func showWrongAnswerAlert() {
-        var correctFlag: String
-        if correctAnswer == 0 {
-            correctFlag = "First"
-        } else if correctAnswer == 1 {
-            correctFlag = "Second"
-        } else {
-            correctFlag = "Third"
-        }
-        let ac = UIAlertController(title: "Wrong flag", message: "\(correctFlag) flag was the correct one", preferredStyle: .alert)
+        let flagTapped = countries[lastFlagTapped].uppercased()
+        let ac = UIAlertController(title: "Wrong flag", message: "That's the flag of \(flagTapped)", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Ok", style: .destructive))
         present(ac, animated: true)
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        lastFlagTapped = sender.tag
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 1
