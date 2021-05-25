@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class ViewController: UITableViewController {
     var pictures = [String]()
@@ -15,7 +16,7 @@ class ViewController: UITableViewController {
         
         title = "Storm viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Recommend this app", style: .plain, target: self, action: #selector(addTapped))
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -44,6 +45,12 @@ class ViewController: UITableViewController {
             vc.totalImages = pictures.count
             vc.imageIndex = indexPath.row
             navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @objc func addTapped() {
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: scene)
         }
     }
 }
