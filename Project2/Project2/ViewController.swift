@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "us", "uk"]
         setupUI()
         askQuestion()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "See score", style: .plain, target: self, action: #selector(seeScore))
     }
     
     func setupUI() {
@@ -45,7 +47,7 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
-        title = "\(countries[correctAnswer].uppercased()) (score: \(score))"
+        title = "\(countries[correctAnswer].uppercased())"
     }
     
     func restart(action: UIAlertAction! = nil) {
@@ -77,5 +79,11 @@ class ViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Restart", style: .default, handler: restart))
             present(ac, animated: true)
         }
+    }
+    
+    @objc func seeScore() {
+        let ac = UIAlertController(title: "Score", message: score.description, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "ok", style: .default))
+        present(ac, animated: true)
     }
 }
