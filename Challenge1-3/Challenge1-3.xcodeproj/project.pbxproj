@@ -25,6 +25,7 @@
 		D542E0FD265EBE2100527F7B /* france.png in Resources */ = {isa = PBXBuildFile; fileRef = D542E0F1265EBE2100527F7B /* france.png */; };
 		D542E0FE265EBE2100527F7B /* nigeria.png in Resources */ = {isa = PBXBuildFile; fileRef = D542E0F2265EBE2100527F7B /* nigeria.png */; };
 		D542E0FF265EBE2100527F7B /* monaco.png in Resources */ = {isa = PBXBuildFile; fileRef = D542E0F3265EBE2100527F7B /* monaco.png */; };
+		D542E101265EC22100527F7B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D542E100265EC22100527F7B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D542E0F1265EBE2100527F7B /* france.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = france.png; sourceTree = "<group>"; };
 		D542E0F2265EBE2100527F7B /* nigeria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nigeria.png; sourceTree = "<group>"; };
 		D542E0F3265EBE2100527F7B /* monaco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monaco.png; sourceTree = "<group>"; };
+		D542E100265EC22100527F7B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				D542E0D3265EBADB00527F7B /* AppDelegate.swift */,
 				D542E0D5265EBADB00527F7B /* SceneDelegate.swift */,
 				D542E0D7265EBADB00527F7B /* ViewController.swift */,
+				D542E100265EC22100527F7B /* DetailViewController.swift */,
 				D542E0D9265EBADB00527F7B /* Main.storyboard */,
 				D542E0DC265EBADC00527F7B /* Assets.xcassets */,
 				D542E0DE265EBADC00527F7B /* LaunchScreen.storyboard */,
@@ -196,6 +199,7 @@
 				D542E0D8265EBADB00527F7B /* ViewController.swift in Sources */,
 				D542E0D4265EBADB00527F7B /* AppDelegate.swift in Sources */,
 				D542E0D6265EBADB00527F7B /* SceneDelegate.swift in Sources */,
+				D542E101265EC22100527F7B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
