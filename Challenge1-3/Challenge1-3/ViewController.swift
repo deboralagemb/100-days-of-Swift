@@ -25,6 +25,17 @@ class ViewController: UITableViewController {
         }
         flagPictures.sort()
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return flagPictures.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Flag", for: indexPath)
+        cell.imageView?.image = UIImage(named: flagPictures[indexPath.row])
+        cell.textLabel?.text = flagPictures[indexPath.row].uppercased()
+        return cell
+    }
 
 }
 
