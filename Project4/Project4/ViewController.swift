@@ -31,8 +31,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
         progressView = UIProgressView(progressViewStyle: .default)
         progressView.sizeToFit()
         let progressButton = UIBarButtonItem(customView: progressView)
+        let goBack = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(webView.goBack))
+        let goFoward = UIBarButtonItem(title: "Foward", style: .plain, target: self, action: #selector(webView.goForward))
         
-        toolbarItems = [progressButton, spacer, refresh]
+        toolbarItems = [progressButton, spacer, goBack, goFoward, spacer, refresh]
         navigationController?.isToolbarHidden = false
         
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
@@ -79,12 +81,13 @@ class ViewController: UIViewController, WKNavigationDelegate {
                 if host.contains(website) {
                     decisionHandler(.allow)
                     return
+                } else {
+                    displayUnauthorizedSiteAlert()
                 }
             }
         }
         
         decisionHandler(.cancel)
-        displayUnauthorizedSiteAlert()
     }
     
     func displayUnauthorizedSiteAlert() {
