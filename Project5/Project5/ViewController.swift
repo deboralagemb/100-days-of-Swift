@@ -62,9 +62,6 @@ class ViewController: UITableViewController {
     func submit(_ answer: String) {
         let lowerAnswer = answer.lowercased()
         
-        let errorTitle: String
-        let errorMessage: String
-        
         if isPossible(word: lowerAnswer) {
             if isOriginal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
@@ -76,28 +73,30 @@ class ViewController: UITableViewController {
                             tableView.insertRows(at: [indexPath], with: .automatic)
                             return
                         } else {
-                            errorTitle = "Word equal from title"
-                            errorMessage = "Please provide a word that is different from start word."
+                            showErrorMessage(title: "Word equal from title",
+                                             message: "Please provide a word that is different from start word.")
                         }
                     } else {
-                        errorTitle = "Word shorter than 3 letters"
-                        errorMessage = "Please provide words that have more than 3 letters."
+                        showErrorMessage(title: "Word shorter than 3 letters",
+                                         message: "Please provide words that have more than 3 letters.")
                     }
                 } else {
-                    errorTitle = "Word not recognized"
-                    errorMessage = "You can't just make them up, you know!"
+                    showErrorMessage(title: "Word not recognized",
+                                     message: "You can't just make them up, you know!")
                 }
             } else {
-                errorTitle = "Word already used"
-                errorMessage = "Be more original!"
+                showErrorMessage(title: "Word already used",
+                                 message: "Be more original!")
             }
         } else {
             guard let title = title else { return }
-            errorTitle = "Word not possible"
-            errorMessage = "You can't spell that word from \(title.lowercased())."
+            showErrorMessage(title: "Word not possible",
+                             message: "You can't spell that word from \(title.lowercased()).")
         }
-        
-        let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+    }
+    
+    func showErrorMessage(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
