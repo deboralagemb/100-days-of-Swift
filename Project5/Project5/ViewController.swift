@@ -69,7 +69,7 @@ class ViewController: UITableViewController {
                 if isReal(word: lowerAnswer) {
                     if isGreaterThan3(word: lowerAnswer) {
                         if isDifferentThanStartWord(word: lowerAnswer) {
-                            usedWords.insert(answer, at: 0)
+                            usedWords.insert(answer.lowercased(), at: 0)
                             
                             let indexPath = IndexPath(row: 0, section: 0)
                             tableView.insertRows(at: [indexPath], with: .automatic)
@@ -127,13 +127,7 @@ class ViewController: UITableViewController {
     }
     
     func isOriginal(word: String) -> Bool {
-        var match: Bool = false
-        for usedWord in usedWords {
-            if usedWord.range(of: word, options: .caseInsensitive) != nil {
-                match = true
-            }
-        }
-        return !match
+        return !usedWords.contains(word)
     }
     
     func isReal(word: String) -> Bool {
