@@ -109,7 +109,7 @@ class ViewController: UITableViewController {
     }
     
     func isGreaterThan3(word: String) -> Bool {
-        return word.count > 3
+        return word.count >= 3
     }
     
     func isPossible(word: String) -> Bool {
@@ -127,7 +127,13 @@ class ViewController: UITableViewController {
     }
     
     func isOriginal(word: String) -> Bool {
-        return !usedWords.contains(word)
+        var match: Bool = false
+        for usedWord in usedWords {
+            if usedWord.range(of: word, options: .caseInsensitive) != nil {
+                match = true
+            }
+        }
+        return !match
     }
     
     func isReal(word: String) -> Bool {
