@@ -68,11 +68,21 @@ class ViewController: UITableViewController {
         if isPossible(word: lowerAnswer) {
             if isOriginal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
-                    usedWords.insert(answer, at: 0)
-                    
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                    return
+                    if isGreaterThan3(word: lowerAnswer) {
+                        if isDifferentThanStartWord(word: lowerAnswer) {
+                            usedWords.insert(answer, at: 0)
+                            
+                            let indexPath = IndexPath(row: 0, section: 0)
+                            tableView.insertRows(at: [indexPath], with: .automatic)
+                            return
+                        } else {
+                            errorTitle = "Word equal from title"
+                            errorMessage = "Please provide a word that is different from start word."
+                        }
+                    } else {
+                        errorTitle = "Word shorter than 3 letters"
+                        errorMessage = "Please provide words that have more than 3 letters."
+                    }
                 } else {
                     errorTitle = "Word not recognized"
                     errorMessage = "You can't just make them up, you know!"
@@ -90,6 +100,15 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
+    }
+    
+    func isDifferentThanStartWord(word: String) -> Bool {
+        guard let title = title else { return false }
+        return word != title
+    }
+    
+    func isGreaterThan3(word: String) -> Bool {
+        return word.count > 3
     }
     
     func isPossible(word: String) -> Bool {
