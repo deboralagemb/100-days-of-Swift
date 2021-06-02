@@ -14,7 +14,15 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         title = "Shopping list"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add item", style: .plain, target: self, action: #selector(addItemToList))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add item", style: .plain, target: self, action: #selector(addItemToList))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareTapped))
+    }
+    
+    @objc
+    func shareTapped() {
+        let list = shoppingList.joined(separator: "\n")
+        let ac = UIActivityViewController(activityItems: [list], applicationActivities: [])
+        present(ac, animated: true)
     }
     
     @objc
