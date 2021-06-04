@@ -14,13 +14,14 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         let urlString: String
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
             
         if navigationController?.tabBarItem.tag == 0 {
             urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
         } else {
             urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
         }
-            
         
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
@@ -30,6 +31,13 @@ class ViewController: UITableViewController {
         }
         
         showError()
+    }
+    
+    @objc
+    func showCredits() {
+        let ac = UIAlertController(title: "Credit", message: "Credits to Whitehouse API for the info and for HackingWithSwift for making it immutable", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     func showError() {
