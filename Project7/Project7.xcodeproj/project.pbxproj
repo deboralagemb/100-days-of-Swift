@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D5965138266A6D9A00F7EAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5965137266A6D9A00F7EAA7 /* AppDelegate.swift */; };
-		D596513A266A6D9A00F7EAA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5965139266A6D9A00F7EAA7 /* SceneDelegate.swift */; };
 		D596513C266A6D9A00F7EAA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D596513B266A6D9A00F7EAA7 /* ViewController.swift */; };
 		D596513F266A6D9A00F7EAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D596513D266A6D9A00F7EAA7 /* Main.storyboard */; };
 		D5965141266A6D9B00F7EAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5965140266A6D9B00F7EAA7 /* Assets.xcassets */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		D5965134266A6D9A00F7EAA7 /* Project7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5965137266A6D9A00F7EAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5965139266A6D9A00F7EAA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D596513B266A6D9A00F7EAA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D596513E266A6D9A00F7EAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5965140266A6D9B00F7EAA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				D5965137266A6D9A00F7EAA7 /* AppDelegate.swift */,
-				D5965139266A6D9A00F7EAA7 /* SceneDelegate.swift */,
 				D596513B266A6D9A00F7EAA7 /* ViewController.swift */,
 				D596514F266A74B400F7EAA7 /* DetailViewController.swift */,
 				D596514B266A705200F7EAA7 /* Petition.swift */,
@@ -150,7 +147,6 @@
 				D596514C266A705200F7EAA7 /* Petition.swift in Sources */,
 				D5965138266A6D9A00F7EAA7 /* AppDelegate.swift in Sources */,
 				D5965150266A74B400F7EAA7 /* DetailViewController.swift in Sources */,
-				D596513A266A6D9A00F7EAA7 /* SceneDelegate.swift in Sources */,
 				D596514E266A70B000F7EAA7 /* Petitions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
