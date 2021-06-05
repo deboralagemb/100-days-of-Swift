@@ -157,6 +157,19 @@ class ViewController: UIViewController {
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            let ac = UIAlertController(title: "Oops!", message: "Wrong answer :/ try again!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "okidoki", style: .default, handler: { [weak self] _ in
+                guard let self = self else { return }
+                self.currentAnswer.text = ""
+                
+                for button in self.activatedButtons {
+                    button.isHidden = false
+                }
+                
+                self.activatedButtons.removeAll()
+            }))
+            present(ac, animated: true)
         }
     }
 
