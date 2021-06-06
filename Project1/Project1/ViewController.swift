@@ -17,6 +17,12 @@ class ViewController: UITableViewController {
         title = "Storm viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Recommend this app", style: .plain, target: self, action: #selector(addTapped))
+
+        performSelector(inBackground: #selector(listingImages), with: nil)
+    }
+    
+    @objc
+    func listingImages() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
