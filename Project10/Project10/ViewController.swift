@@ -70,14 +70,28 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
-        let ac = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
-        ac.addTextField()
-        ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
-            guard let newName = ac?.textFields?[0].text else { return }
-            person.name = newName
-            self?.collectionView.reloadData()
+        let ac = UIAlertController(title: "Select an option", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Rename person", style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            let acRename = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
+            acRename.addTextField()
+            acRename.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak acRename] _ in
+                guard let newName = acRename?.textFields?[0].text else { return }
+                person.name = newName
+                self?.collectionView.reloadData()
+            })
+            acRename.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(acRename, animated: true)
         })
+        
+        ac.addAction(UIAlertAction(title: "Delete person", style: .destructive) { [weak self] _ in
+            guard let self = self else { return }
+            self.people.remove(at: indexPath.item)
+            self.collectionView.reloadData()
+        })
+        
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
         present(ac, animated: true)
     }
 }
