@@ -38,11 +38,6 @@ class GameScene: SKScene {
         ball.physicsBody?.restitution = 0.4 //bounciness
         ball.position = location
         addChild(ball)
-        
-//        let box = SKSpriteNode(color: .red, size: CGSize(width: 64, height: 64))
-//        box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-//        box.position = location
-//        addChild(box)
     }
     
     func makeBouncer(at position: CGPoint) {
