@@ -13,6 +13,7 @@
 		D562861F26FAAECB004013F4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D562861E26FAAECB004013F4 /* GameViewController.swift */; };
 		D562862226FAAECB004013F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D562862026FAAECB004013F4 /* Main.storyboard */; };
 		D562862426FAAECD004013F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D562862326FAAECD004013F4 /* Assets.xcassets */; };
+		D562862E26FB945B004013F4 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = D562862D26FB945B004013F4 /* FireParticles.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D562862126FAAECB004013F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D562862326FAAECD004013F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D562862526FAAECD004013F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D562862D26FB945B004013F4 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				D562862026FAAECB004013F4 /* Main.storyboard */,
 				D562862326FAAECD004013F4 /* Assets.xcassets */,
 				D562862526FAAECD004013F4 /* Info.plist */,
+				D562862D26FB945B004013F4 /* FireParticles.sks */,
 			);
 			path = Project11;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D562862226FAAECB004013F4 /* Main.storyboard in Resources */,
+				D562862E26FB945B004013F4 /* FireParticles.sks in Resources */,
 				D562861926FAAECB004013F4 /* GameScene.sks in Resources */,
 				D562862426FAAECD004013F4 /* Assets.xcassets in Resources */,
 			);
