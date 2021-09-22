@@ -10,6 +10,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
     var balls: [String] = ["ballBlue", "ballCyan", "ballGreen", "ballGrey", "ballPurple", "ballRed", "ballYellow"]
     
+    var ballsLabel: SKLabelNode!
+    var totalOfBalls = 5 {
+        didSet {
+            ballsLabel.text = "Balls left: \(totalOfBalls)"
+        }
+    }
+    
+    
     var score = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
@@ -45,6 +53,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         editLabel.position = CGPoint(x: 80, y: 700)
         addChild(editLabel)
         
+        ballsLabel = SKLabelNode(fontNamed: "Chalkduster")
+        ballsLabel.text = "Balls left: 5"
+        ballsLabel.position = CGPoint(x: 490, y: 700)
+        addChild(ballsLabel)
+        
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         physicsWorld.contactDelegate = self
         
@@ -75,16 +88,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 box.position = location
                 box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
                 box.physicsBody?.isDynamic = false
+                box.name = "box"
                 addChild(box)
             } else {
-                let ballName = balls[Int.random(in: 0..<balls.count)]
-                let ball = SKSpriteNode(imageNamed: ballName)
-                ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width/2.0)
-                ball.physicsBody?.restitution = 0.4 //bounciness
-                ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
-                ball.position = CGPoint(x: location.x, y: 700)
-                ball.name = "ball"
-                addChild(ball)
+                if totalOfBalls > 0 {
+                    let ballName = balls[Int.random(in: 0..<balls.count)]
+                    let ball = SKSpriteNode(imageNamed: ballName)
+                    ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width/2.0)
+                    ball.physicsBody?.restitution = 0.4 //bounciness
+                    ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
+                    ball.position = CGPoint(x: location.x, y: 700)
+                    ball.name = "ball"
+                    addChild(ball)
+                    totalOfBalls -= 1
+                }
             }
         }
     }
@@ -129,9 +146,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if object.name == "good" {
             destroy(ball: ball)
             score += 1
+            totalOfBalls += 1
         } else if object.name == "bad" {
             destroy(ball: ball)
             score -= 1
+        } else if object.name == "box" {
+            object.removeFromParent()
         }
     }
     
